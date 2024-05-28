@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { generateCaseNumber } from '../utils/CaseNumberGenerator';
-
 const AuthComponent = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +9,6 @@ const AuthComponent = ({ setUser }) => {
   const handleLogin = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      await generateCaseNumber(userCredential.user.uid);
       setUser(userCredential.user);
       console.log("logged in as: " + email)
       setError('');
