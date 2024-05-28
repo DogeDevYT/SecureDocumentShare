@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div>
       <AuthComponent setUser={setUser}/>
-      {user && <HomePage clientName="Jim" caseNumber={1} user={user}/>}
+      {user && <HomePage clientName="Jim" caseNumber={2} user={user}/>}
     </div>
   );
 };
